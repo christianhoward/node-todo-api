@@ -83,14 +83,12 @@ describe('GET /todos/:id', () => {
       .end(done);
   });
   it('should return 404 if todo not found', (done) => {
-    //call new object id and use hexstring, make sure you get a 404 back
     request(app)
       .get(`/todos/${todos[0]._id.toHexString() + 1}`)
       .expect(404)
       .end(done);
   });
   it('should return 404 for non-object ids', (done) => {
-    // /todos/123 and return 404
     var id = 123;
     request(app)
       .get(`/todos/${id}`)
